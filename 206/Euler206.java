@@ -3,9 +3,10 @@
 @Desc: https://projecteuler.net/problem=206
 
 Find the unique positive integer whose square has the form 1_2_3_4_5_6_7_8_9_0,
-where each “_” is a single digit.
+where each "_" is a single digit.
 
 ****************************************************************************************/
+import java.util.Calendar;
 
 public class Euler206{
 
@@ -16,6 +17,9 @@ public class Euler206{
 
     // Only the numbers ended with 30 and 70 will match the latest 3 digits of the form
     public static void main(String[] args) {
+
+        Calendar init = Calendar.getInstance();
+        System.out.println("\n-- Euler206 --\n\nExecuting... \n\n");
 
         for(long i = min; i < max; i = i+100 ){
 
@@ -64,5 +68,9 @@ public class Euler206{
             // resets the counter if neither of them match the form
             i-=40;
         }
+    
+        Calendar end = Calendar.getInstance();
+        long diff = (end.getTimeInMillis() - init.getTimeInMillis())/(1000);
+        System.out.println("Time Execution: "+diff+"Sec.");
     }
 }
